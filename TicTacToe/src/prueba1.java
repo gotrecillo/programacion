@@ -2,7 +2,8 @@
 public class prueba1 {
 
 	public static void main(String[] args) {
-		System.out.println("hola github");
+		Tablero tablero = new Tablero();
+		tablero.pintaTablero();
 	}
 
 }
