@@ -44,7 +44,12 @@ public class GameTest {
 		System.out.println();
 		System.out.println("El tablero de juego ha quedado asi :");
 		board.viewBoard();
-		System.out.println("Felicidades");
+		if(board.getIdeal()==board.getTurn()){
+			System.out.println("Felicidades lo has resuelto en el número mínimo de movimientos");
+		}else{
+			System.out.println("Puedes esforzarte mas. Has realizado "+(board.getTurn()-board.getIdeal()+" movimientos extras respecto a la partida perfecta"));
+		}
+		
 		
 	}
 

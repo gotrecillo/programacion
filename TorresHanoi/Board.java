@@ -3,13 +3,15 @@ public class Board {
 
 	private int[][] position;
 	private int turn;
+	private int ideal;
 	private int size;
 	
 	//Inicializo el tablero de juego
 	public Board(int size){
 		this.size = size;
 		position = new int[size][3];
-		
+		turn = 0;
+		ideal = (int)Math.pow(2, size) - 1;
 		for(int i = 0; i < this.size; i++){
 			position[i][0] = size;
 			position[i][1] = 0;
@@ -18,9 +20,13 @@ public class Board {
 		}
 	}
 	
-	//getter de turn
+	
+	//metodos getter
 	public int getTurn(){
 		return turn;
+	}
+	public int getIdeal(){
+		return ideal;
 	}
 	
 	//Visualizo el estado del tablero
