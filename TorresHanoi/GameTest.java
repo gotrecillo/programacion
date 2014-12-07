@@ -26,14 +26,14 @@ public class GameTest {
 			System.out.println("¿De que varilla quieres mover un disco?");
 			from = teclado.nextInt();
 			while ((from > 2) || (from < 0)){
-				System.out.println("Las varillas estan númeradas del 0 al 2");
+				System.out.println("Las varillas estan numeradas del 0 al 2");
 				System.out.println("¿De que varilla quieres mover un disco?");
 				from = teclado.nextInt();
 			}
 			System.out.println("¿A que varilla quieres mover un disco?");
 			to = teclado.nextInt();
 			while ((to > 2) || (to < 0)){
-				System.out.println("Las varillas estan númeradas del 0 al 2");
+				System.out.println("Las varillas estan numeradas del 0 al 2");
 				System.out.println("¿A que varilla quieres mover un disco?");
 				to = teclado.nextInt();
 			}
