@@ -33,16 +33,34 @@ public class Board {
 	public void viewBoard(){
 		int size = this.size;
 		
-		System.out.println("-------------");
+		
 		for (int i = size-1; i >= 0; i--){
-			System.out.print("| ");
+			System.out.print("|| ");
 			for (int j = 0; j < 3; j++){
-				System.out.print(position[i][j]+" | ");
+				paintDisc( position[i][j]);
+				System.out.print(" || ");
 			}
 			System.out.println();
-			System.out.println("-------------");
+			
 			}
-		System.out.println("--0---1---2--");
+		
+	}
+	
+	//Pinta el disco
+	public void paintDisc(int radius){
+		for (int i = 0; i < (size - radius); i++){
+			System.out.print('.');
+		}
+		for (int i = 0; i <  radius; i++){
+			System.out.print('#');
+		}
+		System.out.print('|');
+		for (int i = 0; i <  radius; i++){
+			System.out.print('#');
+		}
+		for (int i = 0; i < (size - radius); i++){
+			System.out.print('.');
+		}
 	}
 	
 	//Obtengo la posicion superior ocupada de una varilla
