@@ -11,11 +11,16 @@ public class Board {
 		position = new int[size][3];
 		
 		for(int i = 0; i < this.size; i++){
-			position[i][0]=size;
-			position[i][1]=0;
-			position[i][2]=0;
+			position[i][0] = size;
+			position[i][1] = 0;
+			position[i][2] = 0;
 			size--;
 		}
+	}
+	
+	//getter de turn
+	public int getTurn(){
+		return turn;
 	}
 	
 	//Visualizo el estado del tablero
@@ -31,13 +36,14 @@ public class Board {
 			System.out.println();
 			System.out.println("-------------");
 			}
+		System.out.println("--0---1---2--");
 	}
 	
 	//Obtengo la posicion superior ocupada de una varilla
 	public int getTopPosition(int stick){
 		int i = size-1;
 		boolean found = false;
-		int top = size-1;
+		int top = 0;
 		
 		while ((i >= 0)&&(!found)){
 			if (position[i][stick] > 0){
@@ -63,16 +69,31 @@ public class Board {
 		int fromPos = getTopPosition(fromStick);
 		int toPos = getTopPosition(toStick);
 		
-		if (toValue<fromValue){
-			System.out.println("El movimiento intentado es ilegal");
+		if ((toValue < fromValue) && (toValue != 0) || (fromValue == 0) || (fromStick == toStick)){
+			System.out.println("Movimiento ilegal");
 		}else{
-			position[toPos+1][toStick] = fromValue;
-			position[fromPos][fromStick] = 0;
-			turn++;
+			if (toValue == 0){
+				position [toPos][toStick] = fromValue;
+				position [fromPos][fromStick] = 0;
+				turn++;
+			}else{
+				position [toPos+1][toStick] = fromValue;
+				position [fromPos][fromStick] = 0;
+				turn++;	
+			}
 		}
 	}
 	
+	//Condicion ganadora
+	public boolean didYouWin(){
+		boolean status = true;
+		if ((isPositionEmpty(size-1, 1))&&isPositionEmpty(size-1, 2)){
+			status = false;
+		}
+		return status;
+	}
 	
+	//Comprobar si una posicion esta vacia
 	public boolean isPositionEmpty(int height, int stick){
 		return (position [height][stick] == 0) ? true : false;
 	}
