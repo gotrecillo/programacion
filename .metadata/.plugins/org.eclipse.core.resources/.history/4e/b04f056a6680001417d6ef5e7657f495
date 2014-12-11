@@ -1,0 +1,21 @@
+
+public class TestBinario {
+
+	public static void main (String[] args){
+		int a[] = new int [100];
+		a[0] = 2;
+		a[1] = 5;
+		a[2] = 7;
+		a[3] = 12;
+		a[4] = 17;
+		a[5] = 25;
+		a[6] = 33;
+		a[7] = 37;
+		a[8] = 41;
+		a[9] = 47;
+		a[10] = 52;
+		
+	}
+ 
+	
+}

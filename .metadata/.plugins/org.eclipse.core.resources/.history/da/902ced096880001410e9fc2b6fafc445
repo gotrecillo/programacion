@@ -1,0 +1,45 @@
+
+public class TestBinario {
+
+	public static void main (String[] args){
+		int a[] = new int [100];
+		a[0] = 2;
+		a[1] = 5;
+		a[2] = 7;
+		a[3] = 12;
+		a[4] = 17;
+		a[5] = 25;
+		a[6] = 33;
+		a[7] = 37;
+		a[8] = 41;
+		a[9] = 47;
+		a[10] = 52;
+		System.out.println("de la vaca");
+		int res = busquedaBinaria(a, 11, 17);
+		
+		System.out.println("caca");
+		System.out.println(res);
+		
+	}
+ 
+	
+	public static int busquedaBinaria (int a[], int n, int dato){
+		int posicion = -1;
+		int inicio = 0;
+		int fin = n-1;
+		int medio = (inicio + fin) / 2;
+		while ((a[medio] != dato)&&(inicio<fin)){
+			if (a[medio] < dato){
+				inicio = medio+1;
+			}else{
+				fin = medio-1;
+			}
+			medio = (inicio + fin)/ 2;
+		}
+		
+		if (a[medio] == dato) {
+			posicion = medio;
+		}
+		return posicion;
+	}
+}

@@ -1,0 +1,14 @@
+
+public class MisArrays {
+	
+	public int busquedaSecuencial (int a[], int n, int dato){
+		int posicion = -1;
+		
+		for (int i=0;((posicion == -1)&&(i<n)); i++){
+			if (a[i] == dato){
+				posicion = i;
+			}
+		}
+		return posicion;
+	}
+}
