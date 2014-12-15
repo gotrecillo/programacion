@@ -27,7 +27,7 @@ public class MisArrays {
 
 
 	
-	public static int llenarArray(int []a, int n){
+	public static int crearArray(int []a, int n){
 		
 		int i = 0;
 				
@@ -41,12 +41,8 @@ public class MisArrays {
 	}
 
 	public static int borrarDato(int []a, int n, int posicion){
-		for (int i = posicion; i < (n-1); i++){
-			a [i] = a[i+1];
-		}
-		return n-1;
+		return n;
 	}
-	
 	public static int busquedaSecuencial (int a[], int n, int dato){
 		int posicion = -1;
 		
@@ -91,24 +87,6 @@ public class MisArrays {
 			posicion = medio;
 		}
 		return posicion;
-	}
-	
-	public static int busquedaMenor (int a[], int n){
-		int posicion = 0;
-		int menor = a[posicion];
-		
-		for (int i = 0; i < n; i++){
-			if (a[i] < menor ){
-				posicion = i;
-				menor = a[posicion];
-			}
-		}
-		return posicion;
-	}
-	
-	public static int borrarMenor (int a[], int n){
-		int posicion = busquedaMenor( a, n);
-		return borrarDato(a, n, posicion);
 	}
 	
 	public static void ordenacionSecuencial (int []a, int n){
