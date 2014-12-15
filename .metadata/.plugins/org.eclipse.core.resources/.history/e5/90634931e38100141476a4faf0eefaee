@@ -88,16 +88,4 @@ public class MisArrays {
 		}
 		return posicion;
 	}
-	
-	public static void ordenacionSecuencial (int []a, int n){
-		//TO DO metodo para ordenar secuencialmente un array
-	}
-	
-	public static void ordenacionBurbuja (int []a, int n){
-		//TO DO metodo de ordenacon de la burbuja
-	}
-	
-	public static void ordenacionInsercionDirecta (int []a, int n){
-		//TO DO metodo de ordenacion por insercion directa
-	}
 }
