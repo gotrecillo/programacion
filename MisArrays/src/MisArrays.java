@@ -106,6 +106,19 @@ public class MisArrays {
 		return posicion;
 	}
 	
+	public static int busquedaMayor (int a[], int n){
+		int posicion = 0;
+		int mayor = a[posicion];
+		
+		for (int i = 0; i < n; i++){
+			if (a[i] > mayor){
+				posicion = i;
+				mayor = a[posicion];
+			}
+		}
+		return posicion;
+	}
+	
 	public static int borrarMenor (int a[], int n){
 		int posicion = busquedaMenor( a, n);
 		return borrarDato(a, n, posicion);
