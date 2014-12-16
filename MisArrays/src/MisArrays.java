@@ -39,11 +39,15 @@ public class MisArrays {
 		}	
 		return n;		
 	}
-
+	
+	public static void pintaArray(){
+		//TODO
+	}
 	public static int borrarDato(int []a, int n, int posicion){
 		for (int i = posicion; i < (n-1); i++){
-			a [i] = a[i+1];
+			a[i] = a[i+1];
 		}
+		a[n-1] = 0;
 		return n-1;
 	}
 	

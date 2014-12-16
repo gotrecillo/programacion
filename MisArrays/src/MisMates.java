@@ -52,5 +52,15 @@ public class MisMates {
 		}
 		return suma;
 	}
+	
+	public static int contarDigitos(int numero){
+		int digitos = 0;
+		
+		while (numero > 0){
+			digitos++;
+			numero = numero / 10;
+		}
+		return digitos;
+	}
 }
 
