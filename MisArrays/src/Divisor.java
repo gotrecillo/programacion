@@ -1,5 +1,16 @@
 public class Divisor {
 	
+	public static int contarDivisores(int n){
+		int divisores = 0;
+		
+		for (int i = 1; i <= n; i++){
+			if (esDivisor(n, i)){
+				divisores++;
+			}
+		}
+		return divisores;
+	}
+	
 	public static int sumaDivisores(int n){
 		int suma=0;
 		for(int i=1;i<=n;i++){
