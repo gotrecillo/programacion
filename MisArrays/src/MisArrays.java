@@ -24,6 +24,18 @@ public class MisArrays {
 	}
 
 
+	public static double mediaArray(int []a, int n){
+		int suma = 0;
+		double media = 0;
+		
+		for (int i = 0; i < n; i++){
+			suma = suma + a[i];
+		}
+		if (n != 0){
+			media = (double)suma / n;
+		}
+		return media;
+	}
 	
 	public static int llenarArray(int []a, int n){
 		int i = 0;
@@ -170,6 +182,30 @@ public class MisArrays {
 			}
 		}
 		return posicion;
+	}
+	
+	public static int[] mayorMenor(int a[], int n){
+		int [] mayorMenor;
+		int size, mayor, menor, indMayor, indMenor;
+		
+		indMayor = busquedaMayor(a, n);
+		mayor = a[indMayor];
+		indMenor = busquedaMenor(a,n);
+		menor = a[indMenor];
+		if (mayor == 0){
+			size = 0;
+			mayorMenor = new int[size];
+		}else if (mayor == menor){
+				size = 1;
+				mayorMenor = new int[size];
+				mayorMenor[0] = mayor;
+			}else{
+				size = 2;
+				mayorMenor = new int[size];
+				mayorMenor[0] = menor;
+				mayorMenor[1] = mayor;
+		}
+		return mayorMenor;
 	}
 	
 	public static int borrarMenor (int a[], int n){
