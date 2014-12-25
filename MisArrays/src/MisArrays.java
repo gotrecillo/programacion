@@ -13,17 +13,54 @@ public class MisArrays {
 		return n;	
 	}
 	
-	public static int visualizarArray(int []a, int n){
+	public static void visualizarArray(int []a, int n){
 		int i = 0;
 		
 		while(i < n){
 			System.out.println(a[i]);
 			i++;
 		}			
-		return n;		
 	}
-
-
+	
+	public static void visualizarArray(int [][]a, int n){
+		for (int i = 0; i < n; i++){
+			System.out.print(a[i][0]);
+			System.out.print(a[i][1]);
+			System.out.println();
+		}
+	}
+	
+	public static boolean esIgualArray(int []a, int []b, int n, int m){
+		boolean respuesta = false;
+		
+		if (n == m){
+			respuesta = true;
+		}
+		for(int i = 0; (i < n) && (respuesta);i++){
+			if (a[i] != b[i]){
+				respuesta = false;
+			}
+		}
+		return respuesta;
+	}
+	
+	public static int sumaArray(int []a, int n){
+		int suma = 0;
+		for (int i = 0; i < n; i++){
+			suma = suma + a[i];
+		}
+		return suma;
+	}
+	
+	public static int[] multiplicacionArray(int a[], int b[], int n){
+		int c[] = new int[a.length];
+		
+		for(int i = 0; i < n; i++){
+			c[i] = a[i] * b[i];
+		}
+		return c;
+	}
+	
 	public static double mediaArray(int []a, int n){
 		int suma = 0;
 		double media = 0;
@@ -37,16 +74,34 @@ public class MisArrays {
 		return media;
 	}
 	
-	public static int llenarArray(int []a, int n){
+	public static void llenarArray(int []a, int n){
 		int i = 0;
-				
+		Scanner teclado = new Scanner (System.in);
+		
 		while(i < n){
-			System.out.println("Introduce un valor para la posición: "+i);
-			Scanner teclado = new Scanner (System.in);
+			System.out.println("Introduce un valor para la posiciÃ³n: "+i);	
 			a[i] = teclado.nextInt();
 			i++;
 		}	
-		return n;		
+	}
+	
+	public static void llenarArray(int [][]a, int n){
+		Scanner teclado = new Scanner (System.in);
+		for (int i = 0; i < n; i++){
+			System.out.println("Introduce un valor para la celda de la fila: "+i+" de la primera columna");
+			a[i][0] = teclado.nextInt();
+			System.out.println("Introduce un valor para la celda de la fila: "+i+" de la segunda columna");
+			a[i][1] = teclado.nextInt();
+		}
+	}
+	
+	public static void pintaAsteriscos(int a[], int n){
+		for (int i = 0; i < n; i++){
+			for (int j = 0; j < a[i]; j++){
+				System.out.print('*');
+			}
+			System.out.println();
+		}
 	}
 	
 	public static void pintaCuadrado(int filas, int columnas){
