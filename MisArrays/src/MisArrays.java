@@ -1,6 +1,16 @@
 import java.util.Scanner;
 public class MisArrays {
 	
+	public static int contarDato(int []a, int n, int dato){
+		int repeticiones = 0;
+		for (int i = 0; i < n; i++){
+			if (a[i] == dato){
+				repeticiones++;
+			}
+		}
+		return repeticiones;
+	}
+	
 	public static int insertarDato(int []a, int n, int posicion, int dato){
 		int i = n-1;
 		

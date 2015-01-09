@@ -1,5 +1,5 @@
 /*
- Declarar e inicializar una matriz de enteros de 2x3 e imprimirla.
+ Declarar e inicializar una matriz de enteros de 3x2 e imprimirla.
  */
 
 public class Ejercicio2_7 {

@@ -1,26 +1,47 @@
 /*
-18. Realizar un m骴ulo (funci髇/procedimiento) que nos permita obtener una 
-direcci髇 IP en hexadecimal. El m骴ulo recibe los cuatro octetos de la direcci髇 IP en el array int 
+18. Realizar un m贸dulo (funci贸n/procedimiento) que nos permita obtener una 
+direcci贸n IP en hexadecimal. El m贸dulo recibe los cuatro octetos de la direcci贸n IP en el array int 
 IP[4].
-1. Dise馻r un m骴ulo (funci髇/procedimiento) hexadecimal() que transforme un n鷐ero 
+1. Dise帽ar un m煤dulo (funci贸n/procedimiento) hexadecimal() que transforme un n煤mero 
 decimal comprendido entre 0 y 255 en dos caracteres hexadecimales char hexa[2].
-2. Aplicar esta funci髇 en la obtenci髇 de la direcci髇 IPHex[8], que contiene un d韌ito 
+2. Aplicar esta funci贸n en la obtenci贸n de la direcci贸n IPHex[8], que contiene un d铆gito 
 hexadecimal en cada elemento.
-3. Dise馻r el m骴ulo main() desde el que se creen los arrays y las llamadas a las funciones/
+3. Dise帽ar el m贸dulo main() desde el que se creen los arrays y las llamadas a las funciones/
 procedimientos necesarios para resolver una determinada IP.
 4. Ejemplo: 172.16.1.35*/
-/* TURBIO, MUY TURBIO QUE QUIERE
+
 import java.util.Scanner;
 public class Ejercicio18 {
 	
-	
+	public static void main (String []args){
+		int ip[] = new int[4];
+		char ipHex[];
+		Scanner teclado = new Scanner (System.in);
+		
+		System.out.println("Introduce el primer octeto de la direccion IP");
+		ip[0] = teclado.nextInt();
+		System.out.println("Introduce el primer octeto de la direccion IP");
+		ip[1] = teclado.nextInt();
+		System.out.println("Introduce el primer octeto de la direccion IP");
+		ip[2] = teclado.nextInt();
+		System.out.println("Introduce el primer octeto de la direccion IP");
+		ip[3] = teclado.nextInt();
+		
+		ipHex = ipToChar(ip);
+		System.out.println();
+		System.out.println("La direccion ip en hexadecimal es:");
+		System.out.println();
+		for (int i = 0; i < 8; i++){
+			System.out.print(ipHex[i]);
+		}	
+	}
 	
 
-	public static char[] ipHexadecimal(int n){
+	public static char[] octetoToHexadecimal(int n){
 		char hex[] = new char[2];
 		int resto;
 		resto = n%16;
-		n = n%16;
+		n = n/16;
 		hex[1] = hexToChar (resto);
 		hex[0] = hexToChar (n);
 		return  hex;
@@ -65,5 +86,22 @@ public class Ejercicio18 {
 		}
 		return c;
 	}
+	
+	public static char[] ipToChar(int n[]){
+		char ip[] = new char[8];
+		char ipa[] = octetoToHexadecimal(n[0]);
+		char ipb[] = octetoToHexadecimal(n[1]);
+		char ipc[] = octetoToHexadecimal(n[2]);
+		char ipd[] = octetoToHexadecimal(n[3]);
+		ip[0] = ipa[0];
+		ip[1] = ipa[1];
+		ip[2] = ipb[0];
+		ip[3] = ipb[1];
+		ip[4] = ipc[0];
+		ip[5] = ipc[1];
+		ip[6] = ipd[0];
+		ip[7] = ipd[1];
+		return ip;
+	}
 
-}*/
+}

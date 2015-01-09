@@ -1,5 +1,11 @@
 public class MisMates {
 	
+	public static int determinante(int[][] matriz){
+		int determinante;
+		determinante = matriz[0][0]*matriz[1][1]*matriz[2][2]+matriz[0][1]*matriz[1][2]*matriz[2][0]+matriz[0][2]*matriz[1][0]*matriz[2][1]-matriz[0][0]*matriz[1][2]*matriz[2][1]-matriz[0][1]*matriz[1][0]*matriz[2][2]-matriz[0][2]*matriz[1][1]*matriz[2][0];
+		return determinante;
+	}
+	
 	public static int potencia(int base, int exponente){
 		int pot=1;
 		while (exponente>0){
