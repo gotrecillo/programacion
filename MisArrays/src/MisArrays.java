@@ -105,6 +105,12 @@ public class MisArrays {
 		}
 	}
 	
+	public static void llenarRandomArray(int []a, int n){
+		for (int i = 0; i < n; i++){
+			a[i] = (int)(Math.random()*101);
+		}
+	}
+	
 	public static void pintaAsteriscos(int a[], int n){
 		for (int i = 0; i < n; i++){
 			for (int j = 0; j < a[i]; j++){
@@ -283,7 +289,19 @@ public class MisArrays {
 	}
 	
 	public static void ordenacionBurbuja (int []a, int n){
-		//TO DO metodo de ordenacon de la burbuja
+		int cambios, aux;
+		
+		do{
+			cambios = 0;
+			for (int i = 1; i < n; i++){
+				if (a[i] < a[i-1]){
+					aux = a[i];
+					a[i] = a[i-1];
+					a[i-1] = aux;
+					cambios++;
+				}
+			}
+		}while (cambios > 1);	
 	}
 	
 	public static void ordenacionInsercionDirecta (int []a, int n){
