@@ -1,5 +1,20 @@
 public class MisMates {
 	
+	public static boolean esCapicua(int n){
+		int digitos = contarDigitos(n);
+		int inicio = 0, fin = digitos - 1;
+		String convertido = String.valueOf(n);
+		boolean respuesta = true;
+		while ((inicio < fin) && respuesta){
+			if (convertido.charAt(inicio) != convertido.charAt(fin)){
+				respuesta = false;
+			}
+			inicio++;
+			fin--;
+		}
+		return respuesta;
+	}
+	
 	public static int determinante(int[][] matriz){
 		int determinante;
 		determinante = matriz[0][0]*matriz[1][1]*matriz[2][2]+matriz[0][1]*matriz[1][2]*matriz[2][0]+matriz[0][2]*matriz[1][0]*matriz[2][1]-matriz[0][0]*matriz[1][2]*matriz[2][1]-matriz[0][1]*matriz[1][0]*matriz[2][2]-matriz[0][2]*matriz[1][1]*matriz[2][0];

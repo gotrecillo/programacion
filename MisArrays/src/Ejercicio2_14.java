@@ -8,12 +8,14 @@ public class Ejercicio2_14 {
 
 	public static void main(String[] args) {
 		int v[] =  {2,3,4,5,6,7,8,9,10,11,12};
-		int posicion11;
-		int posicion13;
-		posicion11 = MisArrays.busquedaSecuencial(v, 11, 11);
-		//posicion13 = MisArrays.busquedaBinaria(v, 11, 13);
-		System.out.println(posicion11);
-		//System.out.println(posicion13);
+		int dato = 5;
+		int posicion;
+		int comprobaciones;
+		
+		posicion = MisArrays.busquedaBinaria(v, 11, dato);
+		comprobaciones = MisArrays.contadorBusquedaBinaria(v, 11, dato);
+		
+		System.out.println("El dato "+dato+" esta situado en la posicion "+posicion+" del array. Y hemos necesitado "+comprobaciones+" comprobaciones para averiguarlo");
 	}
 
 }

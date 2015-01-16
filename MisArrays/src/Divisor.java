@@ -2,9 +2,18 @@ public class Divisor {
 	
 	public static int contarDivisores(int n){
 		int divisores = 0;
-		
 		for (int i = 1; i <= n; i++){
 			if (esDivisor(n, i)){
+				divisores++;
+			}
+		}
+		return divisores;
+	}
+	
+	public static int contarDivisoresPrimos(int n){
+		int divisores = 0;
+		for (int i = 2; i<=n; i++){
+			if ((esDivisor(n, i))&&esPrimo(i)){
 				divisores++;
 			}
 		}

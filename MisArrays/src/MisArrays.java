@@ -208,20 +208,40 @@ public class MisArrays {
 		}
 	}
 	
-	public static int busquedaBinaria (int a[], int n, int dato){
+	public static int contadorBusquedaBinaria(int a[], int n, int dato){
 		int posicion = -1;
 		int inicio = 0;
 		int fin = n-1;
-		int medio = inicio + fin / 2;
+		int iteraciones = 0;
+		int medio;
 		
-		while ((a[medio] != dato)&&(medio != fin)&&(medio != inicio)){
+		do{
+			iteraciones++;
+			medio = (inicio + fin) / 2;
 			if (a[medio] < dato){
 				inicio = medio+1;
 			}else{
 				fin = medio-1;
 			}
-			medio = inicio + fin / 2;
-		}
+		}while ((a[medio] != dato)&&(medio != fin)&&(medio != inicio));
+		
+		return iteraciones;
+	}
+	
+	public static int busquedaBinaria (int a[], int n, int dato){
+		int posicion = -1;
+		int inicio = 0;
+		int fin = n-1;
+		int medio;
+		
+		do{
+			medio = (inicio + fin) / 2;
+			if (a[medio] < dato){
+				inicio = medio+1;
+			}else{
+				fin = medio-1;
+			}
+		}while ((a[medio] != dato)&&(medio != fin)&&(medio != inicio));
 		
 		if (a[medio] == dato) {
 			posicion = medio;
@@ -253,6 +273,125 @@ public class MisArrays {
 			}
 		}
 		return posicion;
+	}
+	
+	public static int busquedaRepetido(int a[], int n){
+		int posicion = -1;
+		for (int i = 0; (i < n-1) && (posicion == -1); i++){
+			for (int j = i+1; (j < n) && (posicion == -1); j++){
+				if (a[i] == a[j]){
+					posicion = j;
+				}
+			}
+		}
+		return posicion;
+	}
+	
+	public static int busquedaPrimerMayor(int a[], int n){
+		int posicion = -1;
+		for (int i = 1; (i < n) && (posicion == -1); i++){
+			if (a[i] > a[i-1]){
+				posicion = i;
+			}
+		}
+		return posicion;
+	}
+	
+	public static boolean esCima(int a[], int posicion, int n){
+		boolean cima = false;
+		if (posicion == 0){
+			if (a[posicion] > a[posicion+1]){
+				cima = true;
+			}
+		}else if (posicion == n-1){
+			if (a[posicion] > a[posicion-1]){
+				cima = true;
+			}
+		}else{
+			if ((a[posicion] > a[posicion+1]) && (a[posicion] > a[posicion-1])){
+				cima = true;
+			}
+		}
+		return cima;
+	}
+	
+	public static int posicionPrimeraCima(int a[], int n){
+		int posicion = -1;
+		for (int i = 0; (i < n) && (posicion == -1); i++){
+			if (esCima(a, i, n)){
+				posicion = i;
+			}
+		}
+		return posicion;
+	}
+	
+	public static int contarCimas(int a[], int n){
+		int cimas = 0;
+		for (int i = 0; i < n; i++){
+			if (esCima(a, i, n)){
+				cimas++;
+			}
+		}
+		return cimas;
+	}
+	
+	public static int[] todasLasCimas(int a[], int n){
+		int cimas[];
+		int numCimas = 0, posicion = 0;
+		for (int i = 0; i < n; i++){
+			if (esCima(a, i, n)){
+				numCimas++;
+			}
+		}
+		cimas = new int[numCimas];
+		for (int i = 0; i < n; i++){
+			if (esCima(a, i, n)){
+				cimas[posicion] = a[i];
+				posicion++;
+			}
+		}
+		return cimas;
+	}
+	
+	public static boolean circularmenteIguales(int a[], int b[], int n, int m){
+		boolean respuesta = true;
+		boolean coincidencia = false;
+		
+		int correspondiente[] = buscar(b , n, a[0]);
+		if (n != m){
+			respuesta = false;
+		}else if (correspondiente.length == 0){
+			respuesta = false;
+		}else{
+			for (int i = 0; (i < correspondiente.length) && (!coincidencia); i++){
+				respuesta = true;
+				for (int j = 0; j < n; j++){
+					if (a[j] != b[correspondiente[i]]){
+						respuesta = false;
+					}
+					if (correspondiente[i] == n -1){
+						correspondiente[i] = 0;
+					}else{
+						correspondiente[i]++;
+					}
+				}
+				if (respuesta) {
+					coincidencia = true;
+				}
+			}
+		}
+		return respuesta;
+	}
+	
+	public static void invertirArray(int a[], int n){
+		int inicio = 0, fin = n-1, aux;
+		while (inicio < fin){
+			aux = a[inicio];
+			a[inicio] = a[fin];
+			a[fin] = aux;
+			inicio++;
+			fin--;
+		}
 	}
 	
 	public static int[] mayorMenor(int a[], int n){
