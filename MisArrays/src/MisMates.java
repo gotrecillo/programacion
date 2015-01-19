@@ -1,5 +1,29 @@
 public class MisMates {
 	
+	public static int minimoComunMultiplo(int a, int b){
+		int factores[] = Divisor.factoresComunesYNoComunesMaxExp(a, b);
+		int mcm = MisArrays.productoArray(factores, factores.length);
+		return mcm;	
+	}
+	
+	public static int maximoComunDivisor(int a, int b){
+		boolean encontrado = false;
+		int menor;
+		if (a < b){
+			menor = a;
+		}else{
+			menor = b;
+		}
+		while (!encontrado){
+			if (Divisor.esDivisorComun(a, b, menor)){
+				encontrado = true;
+			}else{
+				menor--;
+			}
+		}
+		return menor;
+	}
+	
 	public static boolean esCapicua(int n){
 		int digitos = contarDigitos(n);
 		int inicio = 0, fin = digitos - 1;

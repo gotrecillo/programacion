@@ -61,6 +61,13 @@ public class MisArrays {
 		}
 		return suma;
 	}
+	public static int productoArray(int []a, int n){
+		int producto = 1;
+		for (int i = 0; i < n; i++){
+			producto = producto * a[i];
+		}
+		return producto;
+	}
 	
 	public static int[] multiplicacionArray(int a[], int b[], int n){
 		int c[] = new int[a.length];
