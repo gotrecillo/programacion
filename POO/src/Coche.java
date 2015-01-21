@@ -25,9 +25,9 @@ equals()
 
 
 public class Coche {
-	String modelo, matricula, color, tipo, tipoSeguro;
-	int añoFabricacion;
-	boolean metalizada;
+	private String modelo, matricula, color, tipo, tipoSeguro;
+	private int añoFabricacion;
+	private boolean metalizada;
 	
 	public Coche(){
 		this.modelo = null;

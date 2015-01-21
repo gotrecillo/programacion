@@ -16,10 +16,18 @@ public class TestFraccion {
 		if ( medio.equivalente(dosCuartos)){
 			System.out.println("Son euivalentes");
 		}
+		String whatis = "1 / 2";
+		String love = "1 / 2";
 		String maligno = "Soy malo";
 		String malvado = "Soy malo";
 		if (maligno == malvado){
 			System.out.println("Somos los gemelos malvados");
+		}
+		if (whatis == love){
+			System.out.println("What is love");
+		}
+		if (medio.toString() == unMedio.toString()){
+			System.out.println(" mitades ");
 		}
 	}	
 }
