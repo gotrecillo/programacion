@@ -20,11 +20,11 @@ public class Ejercicio18 {
 		
 		System.out.println("Introduce el primer octeto de la direccion IP");
 		ip[0] = teclado.nextInt();
-		System.out.println("Introduce el primer octeto de la direccion IP");
+		System.out.println("Introduce el segundo octeto de la direccion IP");
 		ip[1] = teclado.nextInt();
-		System.out.println("Introduce el primer octeto de la direccion IP");
+		System.out.println("Introduce el tercer octeto de la direccion IP");
 		ip[2] = teclado.nextInt();
-		System.out.println("Introduce el primer octeto de la direccion IP");
+		System.out.println("Introduce el cuarto octeto de la direccion IP");
 		ip[3] = teclado.nextInt();
 		
 		ipHex = ipToChar(ip);

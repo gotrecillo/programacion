@@ -431,7 +431,18 @@ public class MisArrays {
 	}
 	
 	public static void ordenacionSecuencial (int []a, int n){
-		//TO DO metodo para ordenar secuencialmente un array
+		int posMenor, posAux, posActual = 0, aux;
+		while (posActual < n - 1){
+			for (posMenor = posActual, posAux = posActual; posAux < n; posAux++){
+				if (a[posAux] < a[posMenor]) {
+					posMenor = posAux;
+				}
+			}
+			aux = a[posActual];
+			a[posActual] = a[posMenor];
+			a[posMenor] = aux;
+			posActual++;
+		}
 	}
 	
 	public static void ordenacionBurbuja (int []a, int n){
@@ -450,7 +461,26 @@ public class MisArrays {
 		}while (cambios > 1);	
 	}
 	
-	public static void ordenacionInsercionDirecta (int []a, int n){
-		//TO DO metodo de ordenacion por insercion directa
+	public static void ordenacionInsercionDirecta (int []a, int n){		
+		int ordenados = 0, ultimo = n-1, contador, aux;
+		boolean tengoQueBuscar;
+		
+		while (ordenados < n){
+			aux = a[ultimo];
+			n = borrarDato(a, n, ultimo);
+			contador = 0;
+			tengoQueBuscar = true;
+			while ((contador < ordenados) && (tengoQueBuscar)) {
+				if (aux < a[contador]){
+					n = insertarDato(a, n, contador, aux);
+					tengoQueBuscar = false;
+				}
+				contador++;
+			}
+			if (tengoQueBuscar){
+				n = insertarDato(a, n, ordenados, aux);
+			}
+			ordenados++;
+		}	
 	}
 }

@@ -25,22 +25,25 @@ equals()
 
 
 public class Coche {
-	private String modelo, matricula, color, tipo, tipoSeguro;
+	private String modelo, matricula;
+	private TipoSeguro tipoSeguro;
+	private TipoCoche tipo;
+	private Color color;
 	private int añoFabricacion;
 	private boolean metalizada;
 	
 	public Coche(){
 		this.modelo = null;
 		this.matricula = null;
-		this.color = null;
-		this.tipo = null;
-		this.tipoSeguro = null;
+		this.color = Color.BLANCO;
+		this.tipo = TipoCoche.UTILITARIO;
+		this.tipoSeguro = TipoSeguro.A_TERCEROS;
 		this.añoFabricacion = 1900;
 		this.metalizada = false;
 	}
 	
-	public Coche(String modelo, String matricula, String color, String tipo,
-			String tipoSeguro, int añoFabricacion, boolean metalizada) {
+	public Coche(String modelo, String matricula, Color color, TipoCoche tipo,
+			TipoSeguro tipoSeguro, int añoFabricacion, boolean metalizada) {
 		this.modelo = modelo;
 		this.matricula = matricula;
 		this.color = color;
@@ -66,27 +69,27 @@ public class Coche {
 		this.matricula = matricula;
 	}
 
-	public String getColor() {
+	public Color getColor() {
 		return color;
 	}
 
-	public void setColor(String color) {
+	public void setColor(Color color) {
 		this.color = color;
 	}
 
-	public String getTipo() {
+	public TipoCoche getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(TipoCoche tipo) {
 		this.tipo = tipo;
 	}
 
-	public String getTipoSeguro() {
+	public TipoSeguro getTipoSeguro() {
 		return tipoSeguro;
 	}
 
-	public void setTipoSeguro(String tipoSeguro) {
+	public void setTipoSeguro(TipoSeguro tipoSeguro) {
 		this.tipoSeguro = tipoSeguro;
 	}
 
@@ -120,12 +123,12 @@ public class Coche {
 			metal = "metalizado";
 		}
 		
-		String s = "Modelo: " +modelo+ " , matricula: " +matricula+ ", color: " +color+ " " +metal+ " , tipo: " +tipo+ " , seguro: " +tipoSeguro+ " ,año de fabricación: " +añoFabricacion; 
+		String s = "Modelo: " +modelo+ " , matricula: " +matricula+ ", color: " +color.toString().toLowerCase()+ " " +metal+ " , tipo de coche: " +tipo.toString().toLowerCase()+ " , seguro: " +tipoSeguro.toString().toLowerCase().replaceAll("_", " ")+ " ,año de fabricación: " +añoFabricacion; 
 		return s;
 	}
 	
 	public void visualiza(){
-		System.out.println(this.toString());
+		System.out.println(this);
 	}
 	
 }
