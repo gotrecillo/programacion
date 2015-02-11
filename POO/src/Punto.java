@@ -1,0 +1,58 @@
+/*
+ 7. Diseñar la clase Punto que represente un punto en el espacio de dos dimensiones. 
+ Se definirá Punto() (en el origen x=0, y=0), Punto(x,y), métodos set ..() y get..() , 
+ toString(), distanciaAlOrigen(), distanciaOtroPunto(), toString(), equals()
+ */
+
+public class Punto {
+	private double x;
+	private double y;
+	
+	public Punto(){		
+	}
+	
+	public Punto(double x, double y){
+		this.x = x;
+		this.y = y;
+	}
+	
+	public double distanciaAlOrigen(){
+		double distancia = Math.sqrt(x*x + y*y);
+		return distancia;
+	}
+	
+	public double distanciaOtroPunto(Punto punto){
+		double horizontal = this.x - punto.x;
+		double vertical = this.y - punto.y;
+		double distancia = Math.sqrt(horizontal*horizontal + vertical*vertical);
+		return distancia;
+	}
+	
+	public double getX() {
+		return x;
+	}
+	
+	public void setX(double x) {
+		this.x = x;
+	}
+	
+	public double getY() {
+		return y;
+	}
+	
+	public void setY(double y) {
+		this.y = y;
+	}
+	
+	public boolean equals(Punto punto){
+		if (this.toString().equals(punto.toString())){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public String toString(){
+		return "( " + x + " , " + y + " )";
+	}
+}

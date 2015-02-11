@@ -10,10 +10,21 @@ public class Hora {
 	
 	private int hora, min, sec;
 	
+	public Hora(){
+		hora = 0;
+		min = 0;
+		sec = 0;
+	}
+	
 	public Hora(int hora, int min, int sec) {
 		this.hora = hora;
 		this.min = min;
 		this.sec = sec;
+		if (!this.validar()){
+			this.hora = 0;
+			this.min = 0;
+			this.sec = 0;
+		}
 	}
 
 	public int getHora() {
@@ -48,14 +59,23 @@ public class Hora {
 		}
 	}
 	
+	public void ponerHora(int hora, int min, int sec){
+		Hora nueva = new Hora(hora, min, sec);
+		if (nueva.validar()){
+			this.hora = hora;
+			this.min = min;
+			this.sec = sec;
+		}
+	}
+	
 	public String toString() {
 		return  hora + ":" + min + ":" + sec ;
 	}
 	
-	public String toString12() {
+	public String toString2() {
 		boolean am = true;
 		String h;
-		if (hora >= 12){
+		if (hora >= 12){	
 			h = (hora -12)+ ":" + min + ":" + sec +" PM";
 		}else{
 			h = hora + ":" + min + ":" + sec +" AM";

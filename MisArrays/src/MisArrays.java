@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class MisArrays {
+public class MisArrays{
 	
 	public static int contarDato(int []a, int n, int dato){
 		int repeticiones = 0;
