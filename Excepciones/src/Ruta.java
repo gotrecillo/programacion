@@ -33,9 +33,14 @@ public class Ruta {
 	
 	public double trayectoria(){
 		double trayectoria = 0;
-		for (int i = 0; i < ruta.length -1 ; i++){
-			trayectoria = trayectoria + ruta[i].distanciaOtroPunto(ruta[i+1]);
+		try {
+			for (int i = 0; i < ruta.length -1 ; i++){
+				trayectoria = trayectoria + ruta[i].distanciaOtroPunto(ruta[i+1]);
+			}
+		} catch (Exception e) {
+			System.out.println("Punto nulo");
 		}
+		
 		return trayectoria;
 	}
 	

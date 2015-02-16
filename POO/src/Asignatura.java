@@ -74,11 +74,13 @@ public class Asignatura {
 		System.out.println(this.toString());
 	}
 	
-	public boolean equals(Asignatura asignatura){
-		if (this.toString().equals(asignatura.toString())){
-			return true;
-		}else{
-			return false;
-		}
+	public boolean equals(Object asignatura){
+		 if (asignatura instanceof Asignatura) 
+		    {
+		      Asignatura asig = (Asignatura) asignatura;
+		      if ( this.toString().equals(asig.toString()))
+		         return true;
+		    }
+		    return false;
 	}
 }

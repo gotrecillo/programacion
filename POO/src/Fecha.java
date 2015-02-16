@@ -37,12 +37,14 @@ public class Fecha {
 		this.año = año;
 	}
 	
-	public boolean equals(Fecha fecha){
-		if (this.toString().equals(fecha.toString())){
-			return true;
-		}else{
-			return false;
-		}
+	public boolean equals(Object fecha){
+		 if (fecha instanceof Fecha) 
+		    {
+		     Fecha fec = (Fecha) fecha;
+		      if ( this.toString().equals(fec.toString()))
+		         return true;
+		    }
+		 return false;
 	}
 	
 	public String toString(){

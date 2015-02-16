@@ -50,12 +50,14 @@ public class Punto {
 		this.y = y;
 	}
 	
-	public boolean equals(Punto punto){
-		if (this.toString().equals(punto.toString())){
-			return true;
-		}else{
-			return false;
-		}
+	public boolean equals(Object punto){
+		 if (punto instanceof Punto) 
+		    {
+		      Punto punt = (Punto) punto;
+		      if ( this.toString().equals(punt.toString()) )
+		         return true;
+		    }
+	    return false;	
 	}
 	
 	public String toString(){

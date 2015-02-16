@@ -66,11 +66,13 @@ public class Semaforo {
 		}
 	}
 	
-	public boolean equals(Semaforo semaforo){
-		if (this.color == semaforo.color){
-			return true;
-		}else{
-			return false;
-		}
+	public boolean equals(Object semaforo){
+		 if (semaforo instanceof Semaforo) 
+		    {
+		      Semaforo semaf = (Semaforo) semaforo;
+		      if ( this.color.equals(semaf.color) )
+		         return true;
+		    }
+	    return false;	
 	}
 }

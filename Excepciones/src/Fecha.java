@@ -1,6 +1,6 @@
 /*
- 5. Diseñar la clase Fecha con sus constructores, métodos set y get , toString, equals() validarFecha()  
-
+3. Diseñar la clase Fecha con sus constructores, métodos set y get toString, validarFecha() 
+ se lanzará una excepción cuando una fecha no sea válida( mes, día y año correctos)
  */
 
 public class Fecha {
@@ -37,22 +37,23 @@ public class Fecha {
 		this.año = año;
 	}
 	
-	public boolean equals(Fecha fecha){
-		if (this.toString().equals(fecha.toString())){
-			return true;
-		}else{
-			return false;
-		}
+	public boolean equals(Object fecha){
+		 if (fecha instanceof Fecha) 
+		    {
+		     Fecha fec = (Fecha) fecha;
+		      if ( this.toString().equals(fec.toString()))
+		         return true;
+		    }
+		 return false;
 	}
 	
 	public String toString(){
 		return dia+"/"+mes+"/"+año;
 	}
 	
-	public boolean validar(){
-		boolean respuesta = true;
+	public void validar() throws Exception{
 		if ((this.mes < 1)||(this.mes > 12)){
-			respuesta = false;
+			throw new Exception();
 		}else{
 			switch (this.mes){
 			case 1: 
@@ -63,39 +64,30 @@ public class Fecha {
 			case 10:
 			case 12:
 						if (this.dia < 1 || this.dia > 31){
-							respuesta = false;
-						}else{
-							respuesta = true;
+							throw new Exception();
 						}
 						break;
 			
 			case 2: 	if (this.año % 4 == 0){
-							if ((this.dia < 1) || (this.dia > 29)){
-								respuesta = false;
+								if ((this.dia < 1) || (this.dia > 29)){
+									throw new Exception();
+								}	
 							}else{
-								respuesta = true;
-							}	
-						}else{
-							if ((this.dia < 1) || (this.dia > 28)){
-								respuesta = false;
-							}else{
-								respuesta = true;
+								if ((this.dia < 1) || (this.dia > 28)){
+									throw new Exception();
+								}
 							}
-						}
 						break;
+						
 			case 4:
 			case 6:
 			case 9:
 			case 11:
 						if (this.dia < 1 || this.dia > 30){
-							respuesta = false;
-						}else{
-							respuesta = true;
+							throw new Exception();
 						}
 						break;
 			}
 		}
-		return respuesta;
 	}
-
 }

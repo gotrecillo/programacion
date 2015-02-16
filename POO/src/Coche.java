@@ -109,12 +109,14 @@ public class Coche {
 		this.metalizada = metalizada;
 	}
 	
-	public boolean equals(Coche coche){
-		boolean respuesta = false;
-		if (this.toString().equals(coche.toString())){
-			respuesta = true;
-		}
-		return respuesta;
+	public boolean equals(Object coche){
+		 if (coche instanceof Coche) 
+		    {
+		      Coche coc = (Coche) coche;
+		      if ( this.toString().equals(coc.toString())) 
+		         return true;
+		    }
+		    return false;
 	}
 	
 	public String toString(){

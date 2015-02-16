@@ -58,12 +58,14 @@ public class MiArray {
 		return posicion;
 	}
 	
-	public boolean equals(MiArray miArray){
-		if (this.toString().equals(miArray.toString())){
-			return true;
-		}else{
-			return false;
-		}
+	public boolean equals(Object miArray){
+		 if (miArray instanceof MiArray) 
+		    {
+		      MiArray miA = (MiArray) miArray;
+		      if ( this.toString().equals(miA.toString()) )
+		         return true;
+		    }
+	    return false;		
 	}
 	
 	public void ordenacionSecuencial(){

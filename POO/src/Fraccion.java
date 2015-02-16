@@ -23,14 +23,14 @@ public class Fraccion {
 		this.denominador = denominador;
 	}
 	
-	public boolean equals(Fraccion fraccion){
-		boolean resultado;
-		if (this.toString().equals(fraccion.toString())){
-			resultado = true;
-		}else {
-			resultado = false;
-		}
-		return resultado;
+	public boolean equals(Object fraccion){
+		 if (fraccion instanceof Fraccion) 
+		    {
+		      Fraccion frac = (Fraccion) fraccion;
+		      if ( this.toString().equals(frac.toString()) ) 
+		         return true;
+		    }
+		 return false;
 	}
 	
 	public boolean equivalente(Fraccion fraccion){

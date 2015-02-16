@@ -1,7 +1,9 @@
 /*
- 7. Diseñar la clase Punto que represente un punto en el espacio de dos dimensiones. 
- Se definirá Punto() (en el origen x=0, y=0), Punto(x,y), métodos set ..() y get..() , 
- toString(), distanciaAlOrigen(), distanciaOtroPunto(), toString(), equals()
+ 1. Modificar el método double distanciaOtroPunto(Punto p); de la clase Punto para que lance una excepción 
+ si el punto que se le pasa es null. La excepción deberá contener un mensaje descriptivo del problema.
+a. Lanzando una excepción de la clase Exception
+b. Creando una clase MiExcepcionPunteroNulo.
+c. Escribir un programa desde el que calcule la distancia entre dos puntos.
  */
 
 public class Punto {
@@ -16,22 +18,21 @@ public class Punto {
 		this.y = y;
 	}
 	
-	public double distanciaAlOrigen(){
+	public double distanciaAlOrigen() throws MiExcepcionPunteroNulo{
 		Punto o = new Punto(0,0);
 		double distancia = this.distanciaOtroPunto(o);
 		return distancia;
 	}
 	
-	public double distanciaOtroPunto(Punto punto){
-		try{
+	public double distanciaOtroPunto(Punto punto) throws MiExcepcionPunteroNulo{
+		if (punto == null) {
+			throw new MiExcepcionPunteroNulo();
+		}
 		double horizontal = this.x - punto.x;
 		double vertical = this.y - punto.y;
 		double distancia = Math.sqrt(horizontal*horizontal + vertical*vertical);
 		return distancia;
-		}catch (Exception e){
-			System.out.println("Ha habido un error");
-			return -1;
-		}
+		
 	}
 	
 	public double getX() {
@@ -50,12 +51,14 @@ public class Punto {
 		this.y = y;
 	}
 	
-	public boolean equals(Punto punto){
-		if (this.toString().equals(punto.toString())){
-			return true;
-		}else{
-			return false;
-		}
+	public boolean equals(Object punto){
+		 if (punto instanceof Punto) 
+		    {
+		      Punto punt = (Punto) punto;
+		      if ( this.toString().equals(punt.toString()) )
+		         return true;
+		    }
+	    return false;	
 	}
 	
 	public String toString(){

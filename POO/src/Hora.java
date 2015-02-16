@@ -51,12 +51,14 @@ public class Hora {
 		this.sec = sec;
 	}
 
-	public boolean equals(Hora hora){
-		if (this.toString().equals(hora.toString())){
-			return true;
-		}else{
-			return false;
-		}
+	public boolean equals(Object hora){
+		 if (hora instanceof Hora) 
+		    {
+		      Hora hor = (Hora) hora;
+		      if ( this.toString().equals(hor.toString()) ) 
+		         return true;
+		    }
+	    return false;
 	}
 	
 	public void ponerHora(int hora, int min, int sec){

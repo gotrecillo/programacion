@@ -1,8 +1,9 @@
 /*
- 4. Diseñar la clase  Reloj que señale la hora, minuto y segundo con sus constructores, métodos get…() y set…() correspondientes, 
- toString() y equals() que dará la hora en horario 12H ó 24H, indicando en este caso si la hora (de 1 a 12 ) es am ó pm. 
- Y un  método validarHora() que compruebe que una hora determinada es correcta. El constructor con argumentos y un método ponHora() 
- deben validar la hora.
+2. Diseñar la clase  Reloj que señale la hora, minuto y segundo con sus constructores, métodos get y set correspondientes, 
+toString() que daraá la hora en horario 12H ó 24H, indicando en este caso si la hora (de 1 a 12 ) es am ó pm. Y un  método validarHora() 
+que compruebe que una hora determinada es correcta y lance una excepción de la clase Exception si la hora, minuto o segundo
+ no son correctos. 
+El constructor con argumentos y un metodo ponHora() deben validar la hora.
 
  */
 
@@ -20,7 +21,10 @@ public class Hora {
 		this.hora = hora;
 		this.min = min;
 		this.sec = sec;
-		if (!this.validar()){
+		try {
+			this.validar();
+		} catch (Exception e) {
+			System.out.println("Hora invalida, por defecto 00:00:00");
 			this.hora = 0;
 			this.min = 0;
 			this.sec = 0;
@@ -51,20 +55,25 @@ public class Hora {
 		this.sec = sec;
 	}
 
-	public boolean equals(Hora hora){
-		if (this.toString().equals(hora.toString())){
-			return true;
-		}else{
-			return false;
-		}
+	public boolean equals(Object hora){
+		 if (hora instanceof Hora) 
+		    {
+		      Hora hor = (Hora) hora;
+		      if ( this.toString().equals(hor.toString()) ) 
+		         return true;
+		    }
+	    return false;
 	}
 	
 	public void ponerHora(int hora, int min, int sec){
 		Hora nueva = new Hora(hora, min, sec);
-		if (nueva.validar()){
+		try {
+			nueva.validar();
 			this.hora = hora;
 			this.min = min;
 			this.sec = sec;
+		} catch (Exception e) {
+			System.out.println("Hora incorrecta");
 		}
 	}
 	
@@ -83,11 +92,9 @@ public class Hora {
 		return  h;
 	}
 	
-	public boolean validar() {
+	public void validar() throws Exception {
 		if ((hora < 0) || (min < 0) || (sec < 0) || (hora > 23) || (min > 59) || (sec > 59)){
-			return false;
-		}else{
-			return true;
+			throw new Exception();
 		}
 	}
 }
